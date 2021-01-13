@@ -30,12 +30,7 @@ export class EscolaComponent implements OnInit {
         numero: new FormControl(),
         alameda: new FormControl(),
       }),
-      turmas: new FormGroup({
-        maximo_alunos: new FormControl(),
-        codTurma: new FormControl(),
-        responsavel: new FormControl(),
-        curso: new FormControl(),
-      })
+      turmas: new FormControl({})
     })
   }
 

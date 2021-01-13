@@ -5,7 +5,6 @@
         Cadastre Sua Escola
       </ion-label>
     </ion-list-header>
-
     <ion-item>
       <ion-label position="floating">Nome da Escola</ion-label>
       <ion-input formControlName="nomeEscola"></ion-input>
@@ -42,44 +41,7 @@
       <ion-input formControlName="alameda" placeholder="Alameda"></ion-input>
     </ion-item>
   </ion-list>
-
-
-  <ion-list formGroupName="turmas" lines="full" class="ion-no-margin">
-    <ion-list-header lines="full">
-      <ion-label>
-        Turmas
-      </ion-label>
-      <ion-button color="tertiary" (click)="onClick()" expand="block" shape="round">
-        Nova turma
-      </ion-button>
-    </ion-list-header>
-    <ion-item>
-      <ion-label position="stacked">Informações da turma</ion-label>
-      <ion-input formControlName="codTurma" placeholder="Matricula da Turma"></ion-input>
-      <ion-input formControlName="maximo_alunos" placeholder="número Maximo de alunos" type='number'></ion-input>
-      <ion-input formControlName="responsavel" placeholder="Professor Responsavel"></ion-input>
-
-    </ion-item>
-    <ion-item>
-      <ion-label>Curso</ion-label>
-      <ion-select formControlName="curso" value="Matematica" multiple="true" placeholder="Selecione as diciplinas">
-        <ion-select-option value="Matematica">Matematica</ion-select-option>
-        <ion-select-option value="Ciencias">Ciencias</ion-select-option>
-        <ion-select-option value="Portugues">Portugues</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-list-header>
-      <ion-label>
-      </ion-label>
-      <ion-button color="danger" (click)="save()" size="small" expand="block" shape="round">
-        Remover
-      </ion-button>
-    </ion-list-header>
-  </ion-list>
-
-
-
+  <form-incremental-turmas></form-incremental-turmas>
   <ion-button color="primary" (click)="save()" expand="block" shape="round">
     Novo Colegio
   </ion-button>

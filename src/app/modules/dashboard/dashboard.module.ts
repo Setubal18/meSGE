@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { IonicModule } from '@ionic/angular';
+import { FormIncrementalTurmasComponent } from '../../shared/form-incremental-turmas/form-incremental-turmas.component';
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     IonicModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule { }
