@@ -1,0 +1,9 @@
+ion-tab-bar {
+	--border-radius: 8px;
+	> ion-tab-button {
+		--background-focused: #02997a;
+		--background-focused-opacity: 1;
+		--color-focused: #02997a;
+		--color-selected: #02997a;
+	}
+}
