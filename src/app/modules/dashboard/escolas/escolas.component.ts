@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-escolas',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EscolasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     console.log('escolas')
   }
+
+
+  NavToNewSchool() {
+    this.router.navigate(['escola', { relativeTo: Router }])
+  }
+
 
 }
