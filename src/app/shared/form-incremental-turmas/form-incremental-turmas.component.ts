@@ -29,7 +29,7 @@ export class FormIncrementalTurmasComponent implements OnInit {
       maximo_alunos: new FormControl(''),
       codTurma: new FormControl(''),
       responsavel: new FormControl(''),
-      curso: new FormControl(''),
+      curso: new FormControl([]),
     })
   }
 
@@ -77,6 +77,7 @@ export class FormIncrementalTurmasComponent implements OnInit {
 
   sendTurmas() {
     this.eventSendTurmas.emit(this.listaTurmas.value)
+    console.log(this.listaTurmas.value)
   }
 
 

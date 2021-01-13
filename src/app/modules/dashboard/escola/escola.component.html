@@ -41,7 +41,7 @@
       <ion-input formControlName="alameda" placeholder="Alameda"></ion-input>
     </ion-item>
   </ion-list>
-  <form-incremental-turmas></form-incremental-turmas>
+  <form-incremental-turmas (eventSendTurmas)="escolaForm?.get('turmas').setValue($event)"></form-incremental-turmas>
   <ion-button color="primary" (click)="save()" expand="block" shape="round">
     Novo Colegio
   </ion-button>
