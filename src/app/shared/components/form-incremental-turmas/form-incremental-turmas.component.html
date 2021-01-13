@@ -9,7 +9,7 @@
       </ion-button>
     </ion-list-header>
     <form formArrayName="turmas" *ngFor="let obj of listaTurmas?.controls; let i=index">
-      <ng-container [formGroup]="obj">
+      <ion-item-group [formGroup]="obj">
         <ion-item>
           <ion-label position="floating">Informações da turma</ion-label>
           <ion-input formControlName="maximo_alunos" ngDefaultControl placeholder="número Maximo de alunos"
@@ -41,7 +41,7 @@
             Remover
           </ion-button>
         </ion-list-header>
-      </ng-container>
+      </ion-item-group>
     </form>
   </ion-list>
 </ion-content>

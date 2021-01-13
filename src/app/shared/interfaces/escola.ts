@@ -11,7 +11,7 @@ export interface IEscola {
 		rua: string
 		bairro: string
 		numero: string
-		alameda: string
+		complemento: string
 	};
 	turmas: ITurma[];
 }

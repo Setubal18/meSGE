@@ -5,18 +5,20 @@
         Cadastre Sua Escola
       </ion-label>
     </ion-list-header>
-    <ion-item>
-      <ion-label position="floating">Nome da Escola</ion-label>
-      <ion-input formControlName="nomeEscola"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Matricula da Escola</ion-label>
-      <ion-input formControlName="matricula"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Nome Diretor(a)/Reitor(a)</ion-label>
-      <ion-input formControlName="nomeReitor"></ion-input>
-    </ion-item>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="floating">Nome da Escola</ion-label>
+        <ion-input formControlName="nomeEscola"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Matricula da Escola</ion-label>
+        <ion-input formControlName="matricula"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nome Diretor(a)/Reitor(a)</ion-label>
+        <ion-input formControlName="nomeReitor"></ion-input>
+      </ion-item>
+    </ion-item-group>
   </ion-list>
 
   <ion-list lines="full" class="ion-no-margin">
@@ -38,11 +40,11 @@
       <ion-input formControlName="rua" placeholder="Rua"></ion-input>
       <ion-input formControlName="bairro" placeholder="Bairro"></ion-input>
       <ion-input formControlName="numero" placeholder="número"></ion-input>
-      <ion-input formControlName="alameda" placeholder="Alameda"></ion-input>
+      <ion-input formControlName="complemento" placeholder="Complemento"></ion-input>
     </ion-item>
   </ion-list>
   <form-incremental-turmas (eventSendTurmas)="escolaForm?.get('turmas').setValue($event)"></form-incremental-turmas>
-  <ion-button color="primary" (click)="save()" expand="block" shape="round">
+  <ion-button color="primary" (click)="save()" expand="full" shape="round">
     Novo Colegio
   </ion-button>
 </ion-content>
