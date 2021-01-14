@@ -1,0 +1,59 @@
+<ion-content fullscreen [formGroup]="escolaForm">
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label>
+        Cadastre Sua Escola
+      </ion-label>
+    </ion-list-header>
+    <ion-item-group>
+      <ion-item>
+        <ion-label position="floating">Nome da Escola</ion-label>
+        <ion-input formControlName="nomeEscola"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Matricula da Escola</ion-label>
+        <ion-input formControlName="matricula"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nome Diretor(a)/Reitor(a)</ion-label>
+        <ion-input formControlName="nomeReitor"></ion-input>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Carregando</ion-label>
+    </ion-list-header>
+  </ion-list>
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label>
+        Informações da Escola
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input formControlName="tel" type='tel'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item formGroupName="endereco">
+      <ion-label position="stacked">Endereço</ion-label>
+      <ion-input formControlName="rua" placeholder="Rua"></ion-input>
+      <ion-input formControlName="bairro" placeholder="Bairro"></ion-input>
+      <ion-input formControlName="numero" placeholder="número"></ion-input>
+      <ion-input formControlName="complemento" placeholder="Complemento"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ng-container *ngIf="!loading">
+    <form-incremental-turmas [receiveTurmas]="escola?.turmas"
+      (eventSendTurmas)="escolaForm?.get('turmas').setValue($event)"></form-incremental-turmas>
+  </ng-container>
+
+
+  <ion-button color="primary" (click)="save()" expand="full" shape="round">
+    Novo Colegio
+  </ion-button>
+</ion-content>
