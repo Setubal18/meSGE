@@ -90,7 +90,6 @@ export class EscolaComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    console.log(this.escolaForm.value);
     this.escolaService.saveEscola(this.escolaForm.value).then(res => {
       this.apiResponseService.success(res);
       if (!this.id) {

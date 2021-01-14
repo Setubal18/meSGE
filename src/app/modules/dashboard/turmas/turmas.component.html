@@ -4,8 +4,8 @@
   </ion-list-header>
   <ion-item *ngFor="let item of turmas; let i=index">
     <ion-label>{{item?.codTurma}}</ion-label>
-    <ion-icon color="primary" name="create" [routerLink]="['turma',item?.id]"></ion-icon>
-    <ion-icon color="danger" name="trash-bin" (click)="excluirTurma(item?.id)"></ion-icon>
+    <ion-icon color="primary" name="create" [routerLink]="['turma',item?.codTurma]"></ion-icon>
+    <ion-icon color="danger" name="trash-bin" (click)="excluirTurma(item?.codTurma)"></ion-icon>
   </ion-item>
 </ion-list>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

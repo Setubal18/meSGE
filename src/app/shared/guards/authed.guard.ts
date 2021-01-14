@@ -28,7 +28,6 @@ export class AuthedGuard implements CanActivate, CanActivateChild, CanLoad {
   }
   private async verifyAccess() {
     const user = await this.authedService.loaduser();
-    console.log('aqui', user);
     if (user.id === 'ADMIN') {
       return true;
     }

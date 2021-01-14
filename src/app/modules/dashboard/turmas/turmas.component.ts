@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TurmaService } from '../../../shared/services/turma.service';
 import { ITurma } from '../../../shared/interfaces/turma';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { ApiResponseService } from 'src/app/shared/services/api-response.service
   templateUrl: './turmas.component.html',
   styleUrls: ['./turmas.component.scss'],
 })
-export class TurmasComponent implements OnInit {
+export class TurmasComponent implements OnInit, OnDestroy {
   public turmas: ITurma[];
   constructor(
     private turmaService: TurmaService,
@@ -19,6 +19,9 @@ export class TurmasComponent implements OnInit {
 
   ngOnInit() {
     this.getTurmas();
+  }
+
+  ngOnDestroy(): void {
   }
 
   async getTurmas() {
@@ -31,9 +34,8 @@ export class TurmasComponent implements OnInit {
 
   async excluirTurma(codTurma: string) {
     try {
-      const { message } = await this.turmaService.excluirTurma();
+      await this.turmaService.excluirTurma(codTurma);
       await this.getTurmas();
-      this.apiResponseService.success({ message: 'Sucesso' });
     } catch (error) {
       this.apiResponseService.danger({ error });
     }

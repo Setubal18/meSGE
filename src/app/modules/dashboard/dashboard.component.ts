@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit {
   public user;
   async ngOnInit() {
     this.user = await this.authedService.loaduser()
-    console.log(this.user)
   }
 
 }

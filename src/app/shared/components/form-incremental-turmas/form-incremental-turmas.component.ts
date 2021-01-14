@@ -37,7 +37,6 @@ export class FormIncrementalTurmasComponent implements OnInit {
   }
 
   persistirForm() {
-    console.log(this.receiveTurmas)
     if (this.receiveTurmas && this.receiveTurmas.length !== 0) {
       this.listaTurmas.removeAt(0);
       this.receiveTurmas.forEach(type => {
