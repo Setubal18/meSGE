@@ -43,7 +43,7 @@ Para utilizar executar localmente em modo desenvolvimento utilize `ionic serve`.
 Execute `ionic build` para buildar o projeto. Os arquivos de saída da build serão armazenados no diretório `dist/`. Use a flag `--prod` para habilitar o modo `production`.
 
 Comandos para buildar APK `ionic build` para gerar a build depois `ionic cap add` usando `android || ios` para criar os projetos <i>android</i> e <i>ios</i> respectivamente.
-Use `ionic cap copy` para copiar as builds para o projeto nativo. Caso tenha feito atualizações utilize o comando `ionic cap sync`
+Use `ionic cap copy` para copiar as builds para o projeto nativo. Caso tenha feito atualizações utilize o comando `ionic cap sync`.
 
 ### Encapsulamento de código
 
