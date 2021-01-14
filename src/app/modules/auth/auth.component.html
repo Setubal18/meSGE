@@ -1,11 +1,25 @@
 <ion-content padding class="background">
 	<ion-card>
-		<i-card-header>
+		<ion-card-header>
 			<ion-card-title>Minha Escola SGE</ion-card-title>
 			<ion-card-subtitle>Sistema de gestão escolar</ion-card-subtitle>
-		</i-card-header>
+		</ion-card-header>
 		<ion-card-content>
-			<ion-button expand="block" href="./dashboard/escolas">Entrar</ion-button>
+			<form [formGroup]="loginForm">
+				<ion-item>
+					<ion-label position="floating">Login <ion-text color="danger">*</ion-text>
+					</ion-label>
+					<ion-input formControlName="user" type="text"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label position="floating">Matrícula <ion-text color="danger">*</ion-text>
+					</ion-label>
+					<ion-input formControlName="matricula" type="text"></ion-input>
+				</ion-item>
+				<ion-button expand="block" block color="primary" (click)="onSubmit()" [disabled]="loginForm.invalid">
+					Entrar
+				</ion-button>
+			</form>
 		</ion-card-content>
 	</ion-card>
 
