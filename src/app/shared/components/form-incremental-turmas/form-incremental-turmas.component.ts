@@ -14,7 +14,6 @@ export class FormIncrementalTurmasComponent implements OnInit {
 
   ngOnInit() {
     this.initForm()
-    console.log('turmasForm')
   }
 
 
@@ -59,7 +58,6 @@ export class FormIncrementalTurmasComponent implements OnInit {
 
   addTurma() {
     this.listaTurmas.push(this.turmaForm)
-    console.log(this.listaTurmas)
   }
 
   removeTurma(index: number) {
@@ -77,7 +75,6 @@ export class FormIncrementalTurmasComponent implements OnInit {
 
   sendTurmas() {
     this.eventSendTurmas.emit(this.listaTurmas.value)
-    console.log(this.listaTurmas.value)
   }
 
 

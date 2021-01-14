@@ -7,21 +7,21 @@ const { Storage } = Plugins;
   providedIn: 'root'
 })
 export class EscolaService {
-  private escolas: IEscola[] = [];
-  constructor() { }
+  constructor() {
+  }
 
   public async saveEscola(body: IEscola) {
     try {
       const escolas = await this.getEscolasList();
       if (!body.cod) {
-        body.cod = Date.now();
+        body.cod = Date.now().toString();
       }
       escolas.push(body);
       Storage.set({
         key: 'escolas',
         value: JSON.stringify(escolas)
       });
-      return { messagem: 'Sucesso ao Cadastrar' };
+      return { message: 'Sucesso ao Cadastrar' };
     } catch (error) {
       return { error };
     }
@@ -31,6 +31,38 @@ export class EscolaService {
   public async getEscolasList(): Promise<IEscola[]> {
     const escolaList = await Storage.get({ key: 'escolas' });
     return JSON.parse(escolaList.value) || [];
+  }
+
+  public async getEscola(cod: string) {
+    try {
+      const escolas = await this.getEscolasList();
+
+      return escolas.find((escola: IEscola) => {
+        return cod === escola.cod;
+      });
+    } catch (error) {
+      return { error: 'Não Encontrado ou não existente' };
+    }
+  }
+
+
+  set escolas(escolas: any) {
+    Storage.set({
+      key: 'escolas',
+      value: JSON.stringify(escolas)
+    });
+  }
+
+  public async excluirEscola(cod: string) {
+    try {
+      const escolas = await this.getEscolasList();
+      this.escolas = escolas.filter((escola: IEscola) => {
+        return cod !== escola.cod;
+      });
+      return { message: 'Sucesso ao Excluir' };
+    } catch (error) {
+      return { error };
+    }
   }
 
 }

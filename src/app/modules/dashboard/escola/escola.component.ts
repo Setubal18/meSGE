@@ -41,7 +41,6 @@ export class EscolaComponent implements OnInit {
   save() {
     console.log(this.escolaForm.value);
     this.escolaService.saveEscola(this.escolaForm.value).then(res => {
-      console.log(res);
       this.apiResponseService.success(res);
     }, (error) => {
       this.apiResponseService.danger(error);

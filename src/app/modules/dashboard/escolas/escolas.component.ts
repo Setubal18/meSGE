@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EscolaService } from '../../../shared/services/escola.service';
+import { IEscola } from '../../../shared/interfaces/escola';
+import { ApiResponseService } from '../../../shared/services/api-response.service';
 
 @Component({
   selector: 'app-escolas',
@@ -7,16 +10,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./escolas.component.scss'],
 })
 export class EscolasComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  public escolas: IEscola[];
+  constructor(
+    private escolaService: EscolaService,
+    private router: Router,
+    private apiResponseService: ApiResponseService
+  ) { }
 
   ngOnInit() {
-    console.log('escolas')
+    this.getEscolas();
   }
 
+  async getEscolas() {
+    this.escolas = await this.escolaService.getEscolasList();
+  }
 
   NavToNewSchool() {
-    this.router.navigate(['escola', { relativeTo: Router }])
+    this.router.navigate(['escola', { relativeTo: Router }]);
+  }
+
+  async exluirEscola(cod: string) {
+    try {
+      const { message } = await this.escolaService.excluirEscola(cod);
+      this.getEscolas()
+      this.apiResponseService.success({ message });
+    } catch (error) {
+      this.apiResponseService.danger({ error });
+    }
   }
 
 

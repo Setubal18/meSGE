@@ -11,13 +11,12 @@ export class ApiResponseService {
 
   public async success(body) {
     this.toast = await this.toastController.create({
-      message: body.messagem,
+      message: body.message,
       color: 'success',
       position: 'top',
       duration: 2000,
       animated: true
     }).then((toastData) => {
-      console.log(toastData);
       toastData.present();
     });
 
@@ -31,7 +30,6 @@ export class ApiResponseService {
       duration: 2000,
       animated: true
     }).then((toastData) => {
-      console.log(toastData);
       toastData.present();
     });
 
