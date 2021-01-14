@@ -1,20 +1,3 @@
 ion-content.background {
-	--background: url(../../../assets/imgs/login-bg.jpg) 0 0/100% 100% no-repeat;
-}
-
-ion-card {
-	margin: 9rem;
-	padding: 2em;
-	background-color: #060606ba;
-	> i-card-header {
-		text-align: center;
-		> ion-card-title {
-			font-size: 2.5em;
-			font-weight: bold;
-		}
-		> ion-card-subtitle {
-			font-size: 2.1em;
-			font-weight: 500;
-		}
-	}
+	--background: url(../../../assets/imgs/login-bg.jpg) no-repeat center;
 }
