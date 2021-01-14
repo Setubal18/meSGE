@@ -15,8 +15,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Curso</ion-label>
-      <ion-select (change)="sendTurmas()" formControlName="curso" ngDefaultControl multiple="true"
-        placeholder="Selecione as diciplinas">
+      <ion-select formControlName="curso" ngDefaultControl multiple="true" placeholder="Selecione as diciplinas">
         <ion-select-option *ngFor="let item of cursos" [value]="item">{{item}}</ion-select-option>
       </ion-select>
     </ion-item>
