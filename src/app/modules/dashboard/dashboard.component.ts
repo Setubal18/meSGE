@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthedService } from '../../shared/services/authed.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {}
+  constructor(public authedService: AuthedService) { }
+  public user;
+  async ngOnInit() {
+    this.user = await this.authedService.loaduser()
+    console.log(this.user)
+  }
 
 }

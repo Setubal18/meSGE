@@ -17,6 +17,10 @@ const routes: Routes = [
         canLoad: [HowIsGuard]
       },
       {
+        path: 'turmas',
+        loadChildren: () => import('./turmas/turmas.module').then(r => r.TurmasModule),
+      },
+      {
         path: '',
         redirectTo: 'escolas',
         pathMatch: 'full'
