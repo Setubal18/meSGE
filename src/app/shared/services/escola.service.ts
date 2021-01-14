@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IEscola } from '../interfaces/escola';
 import { Plugins } from '@capacitor/core';
+import { ApiResponseService } from './api-response.service';
 
 const { Storage } = Plugins;
 @Injectable({
@@ -39,17 +40,14 @@ export class EscolaService {
   public async getEscola(id: string) {
     try {
       const escolas = await this.getEscolasList();
-      console.log(id);
       const escola = escolas.find((escola: IEscola) => {
-        console.log(escola);
         if (id === escola.id) {
           return escola;
         }
       });
-      console.log(escola);
       return escola;
     } catch (error) {
-      console.log({ error: 'Não Encontrado ou não existente' });
+      console.log(error)
     }
   }
 

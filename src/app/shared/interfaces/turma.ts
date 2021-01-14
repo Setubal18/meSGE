@@ -1,6 +1,6 @@
 export interface ITurma {
 	maximo_alunos: string;
-	codTurma: number;
+	codTurma: string;
 	responsavel: string;
 	curso: string[];
 }

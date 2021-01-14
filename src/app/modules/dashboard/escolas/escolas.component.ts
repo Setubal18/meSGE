@@ -32,7 +32,7 @@ export class EscolasComponent implements OnInit {
   async exluirEscola(id: string) {
     try {
       const { message } = await this.escolaService.excluirEscola(id);
-      this.getEscolas()
+      await this.getEscolas();
       this.apiResponseService.success({ message });
     } catch (error) {
       this.apiResponseService.danger({ error });

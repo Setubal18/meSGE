@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
-
+interface Response {
+  message?: string;
+  status?: number;
+  error?: any
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiResponseService {
   private toast: any;
   constructor(private toastController: ToastController) { }
 
-  public async success(body) {
+  public async success(body: Response) {
     this.toast = await this.toastController.create({
       message: body.message,
       color: 'success',
@@ -22,7 +27,7 @@ export class ApiResponseService {
 
   }
 
-  public async danger(body) {
+  public async danger(body: Response) {
     this.toast = await this.toastController.create({
       message: body.error,
       color: 'danger',

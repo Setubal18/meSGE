@@ -1,0 +1,36 @@
+<ion-content *ngIf="codTurma">
+  <ion-item-group [formGroup]="turmaForm">
+    <ion-item>
+      <ion-label position="floating">Informações da turma</ion-label>
+      <ion-input formControlName="maximo_alunos" ngDefaultControl placeholder="número Maximo de alunos" type='number'>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Professor Responsavel</ion-label>
+      <ion-input formControlName="responsavel" ngDefaultControl placeholder="Professor Responsavel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Matricula da Turma</ion-label>
+      <ion-input formControlName="codTurma" ngDefaultControl placeholder="Matricula da Turma"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Curso</ion-label>
+      <ion-select (change)="sendTurmas()" formControlName="curso" ngDefaultControl value="Matematica" multiple="true"
+        placeholder="Selecione as diciplinas">
+        <ion-select-option value="Matematica">Matematica</ion-select-option>
+        <ion-select-option value="Ciencias">Ciencias</ion-select-option>
+        <ion-select-option value="Portugues">Portugues</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+  <ion-button color="primary" (click)="save()" expand="full" shape="round">
+    Novos Turmas
+  </ion-button>
+</ion-content>
+<ion-content *ngIf="!codTurma">
+  <form-incremental-turmas (eventSendTurmas)="turmasForm?.setValue($event)">
+  </form-incremental-turmas>
+  <ion-button color="primary" (click)="save()" expand="full" shape="round">
+    Novos Turmas
+  </ion-button>
+</ion-content>
