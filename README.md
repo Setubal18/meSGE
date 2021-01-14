@@ -4,7 +4,13 @@
 
 Projeto com proposito de criar uma MVP (Mínimo Produto Viavel) de uma SGE (Sistema de gestão escolar)
 
-[DEMO]()
+[DEMO](https://me-sge.vercel.app/auth)
+
+# Como entrar?
+
+Para entrar como `admin` basta no campo `login` colocar a palavra `admin`.
+
+Para logar como uma escola é necessario cadastrar primeiro a escola no `admin` depois utilizar o ´nome´ da escola ou do responsável, diretor(a) ou reitor(a) no campo de `login` e no campo `matrícula` adicione a matrícula da sua escola.
 
 ## O'que utiliza?
 
@@ -22,9 +28,9 @@ Projeto com proposito de criar uma MVP (Mínimo Produto Viavel) de uma SGE (Sist
 ## TO-DO
 
 - [x] CRUD Escolas
-- [ ] CRUD Turmas
-- [ ] Login
-- [ ] CRUD Turmas (logado como escola)
+- [x] CRUD Turmas
+- [x] Login
+- [x] CRUD Turmas (logado como escola)
 - [ ] Testes
 - [ ] CRUD Matérias
 
