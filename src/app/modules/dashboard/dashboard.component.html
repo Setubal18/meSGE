@@ -1,13 +1,12 @@
 <ion-tabs>
 
   <ion-tab-bar slot="top">
-    <ion-tab-button tab="escolas">
+    <ion-tab-button tab="escolas" *ngIf="user?.id == 'ADMIN'">
       <ion-icon name="school"></ion-icon>
       <ion-label>Escolas</ion-label>
     </ion-tab-button>
-
-    <ion-tab-button tab="turmas">
-      <ion-icon name="ellipse"></ion-icon>
+    <ion-tab-button tab="turmas" *ngIf="user?.id != 'ADMIN'">
+      <ion-icon name="library"></ion-icon>
       <ion-label>Turmas</ion-label>
     </ion-tab-button>
 

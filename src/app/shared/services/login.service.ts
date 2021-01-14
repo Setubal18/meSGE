@@ -34,7 +34,6 @@ export class LoginService extends EscolaService {
         return 400;
       }
       else {
-        console.log(result);
         this.authedService.user = result;
         return 200;
       }
