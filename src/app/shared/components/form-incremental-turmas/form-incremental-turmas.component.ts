@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-
+import cursos from '../../utils/cursos';
 @Component({
   selector: 'form-incremental-turmas',
   templateUrl: './form-incremental-turmas.component.html',
@@ -10,11 +10,12 @@ export class FormIncrementalTurmasComponent implements OnInit {
   public turmasForm: FormGroup;
   @Output() eventSendTurmas: EventEmitter<any> = new EventEmitter<any>();
   @Input() receiveTurmas = [];
+  public cursos = cursos;
   constructor() { }
 
   ngOnInit() {
     this.initForm();
-    this.persistirForm()
+    this.persistirForm();
   }
 
   initForm() {
@@ -71,10 +72,11 @@ export class FormIncrementalTurmasComponent implements OnInit {
       this.listaTurmas.removeAt(i);
       i++;
     }
-    this.addTurma()
+    this.addTurma();
   }
 
   sendTurmas() {
+    console.log(this.listaTurmas.value);
     this.eventSendTurmas.emit(this.listaTurmas.value);
   }
 
