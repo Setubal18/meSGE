@@ -13,8 +13,8 @@ export class EscolaService {
   public async saveEscola(body: IEscola) {
     try {
       const escolas = await this.getEscolasList();
-      if (!body.cod) {
-        body.cod = Date.now().toString();
+      if (!body.id) {
+        body.id = Date.now().toString();
       }
       escolas.push(body);
       Storage.set({
@@ -33,12 +33,12 @@ export class EscolaService {
     return JSON.parse(escolaList.value) || [];
   }
 
-  public async getEscola(cod: string) {
+  public async getEscola(id: string) {
     try {
       const escolas = await this.getEscolasList();
 
       return escolas.find((escola: IEscola) => {
-        return cod === escola.cod;
+        return id === escola.id;
       });
     } catch (error) {
       return { error: 'Não Encontrado ou não existente' };
@@ -53,11 +53,11 @@ export class EscolaService {
     });
   }
 
-  public async excluirEscola(cod: string) {
+  public async excluirEscola(id: string) {
     try {
       const escolas = await this.getEscolasList();
       this.escolas = escolas.filter((escola: IEscola) => {
-        return cod !== escola.cod;
+        return id !== escola.id;
       });
       return { message: 'Sucesso ao Excluir' };
     } catch (error) {

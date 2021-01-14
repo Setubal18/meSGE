@@ -1,7 +1,7 @@
 import { ITurma } from './turma';
 
 export interface IEscola {
-	cod: string;
+	id: string;
 	nomeEscola: string;
 	matricula: string;
 	nomeReitor: string;

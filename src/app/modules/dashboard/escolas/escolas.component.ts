@@ -29,9 +29,9 @@ export class EscolasComponent implements OnInit {
     this.router.navigate(['escola', { relativeTo: Router }]);
   }
 
-  async exluirEscola(cod: string) {
+  async exluirEscola(id: string) {
     try {
-      const { message } = await this.escolaService.excluirEscola(cod);
+      const { message } = await this.escolaService.excluirEscola(id);
       this.getEscolas()
       this.apiResponseService.success({ message });
     } catch (error) {

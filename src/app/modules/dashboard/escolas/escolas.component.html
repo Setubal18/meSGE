@@ -4,8 +4,8 @@
   </ion-list-header>
   <ion-item *ngFor="let item of escolas; let i=index">
     <ion-label>{{item?.nomeEscola}}</ion-label>
-    <ion-icon color="primary" name="create" [routerLink]="['escola',item?.cod]"></ion-icon>
-    <ion-icon color="danger" name="trash-bin" (click)="exluirEscola(item?.cod)"></ion-icon>
+    <ion-icon color="primary" name="create" [routerLink]="['escola',item?.id]"></ion-icon>
+    <ion-icon color="danger" name="trash-bin" (click)="exluirEscola(item?.id)"></ion-icon>
   </ion-item>
 </ion-list>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
