@@ -6,6 +6,7 @@ import { TurmaService } from '../../../shared/services/turma.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormIncrementalTurmasComponent } from 'src/app/shared/components/form-incremental-turmas/form-incremental-turmas.component';
 import { ITurma } from '../../../shared/interfaces/turma';
+import cursos from '../../../shared/utils/cursos';
 
 @Component({
   selector: 'app-turma',
@@ -20,6 +21,7 @@ export class TurmaComponent implements OnInit, OnDestroy {
   public turmaForm: FormGroup;
   public turmasForm = new FormControl([]);
   public turma: ITurma;
+  public cursos = cursos;
   constructor(
     private turmaService: TurmaService,
     private apiResponseService: ApiResponseService,
