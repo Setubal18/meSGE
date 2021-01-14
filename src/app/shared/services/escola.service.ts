@@ -12,10 +12,13 @@ export class EscolaService {
 
   public async saveEscola(body: IEscola) {
     try {
-      const escolas = await this.getEscolasList();
       if (!body.id) {
         body.id = Date.now().toString();
       }
+      if (body.id) {
+        await this.excluirEscola(body.id);
+      }
+      const escolas = await this.getEscolasList();
       escolas.push(body);
       Storage.set({
         key: 'escolas',
@@ -36,12 +39,17 @@ export class EscolaService {
   public async getEscola(id: string) {
     try {
       const escolas = await this.getEscolasList();
-
-      return escolas.find((escola: IEscola) => {
-        return id === escola.id;
+      console.log(id);
+      const escola = escolas.find((escola: IEscola) => {
+        console.log(escola);
+        if (id === escola.id) {
+          return escola;
+        }
       });
+      console.log(escola);
+      return escola;
     } catch (error) {
-      return { error: 'Não Encontrado ou não existente' };
+      console.log({ error: 'Não Encontrado ou não existente' });
     }
   }
 

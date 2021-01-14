@@ -20,7 +20,11 @@
       </ion-item>
     </ion-item-group>
   </ion-list>
-
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Carregando</ion-label>
+    </ion-list-header>
+  </ion-list>
   <ion-list lines="full" class="ion-no-margin">
     <ion-list-header lines="full">
       <ion-label>
@@ -43,7 +47,12 @@
       <ion-input formControlName="complemento" placeholder="Complemento"></ion-input>
     </ion-item>
   </ion-list>
-  <form-incremental-turmas (eventSendTurmas)="escolaForm?.get('turmas').setValue($event)"></form-incremental-turmas>
+  <ng-container *ngIf="!loading">
+    <form-incremental-turmas [receiveTurmas]="escola?.turmas"
+      (eventSendTurmas)="escolaForm?.get('turmas').setValue($event)"></form-incremental-turmas>
+  </ng-container>
+
+
   <ion-button color="primary" (click)="save()" expand="full" shape="round">
     Novo Colegio
   </ion-button>
