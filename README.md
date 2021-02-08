@@ -45,7 +45,7 @@ Execute `ionic build` para buildar o projeto. Os arquivos de saída da build ser
 Comandos para buildar APK `ionic build` para gerar a build depois `ionic cap add` usando `android || ios` para criar os projetos <i>android</i> e <i>ios</i> respectivamente.
 Use `ionic cap copy` para copiar as builds para o projeto nativo. Caso tenha feito atualizações utilize o comando `ionic cap sync`.
 
-### Encapsulamento de código
+### Gerador
 
 Execute `ionic generate component component-name` para gerar um novo componente. Você também pode usar `ionic generate directive|pipe|service|class|guard|interface|enum|module`.
 
