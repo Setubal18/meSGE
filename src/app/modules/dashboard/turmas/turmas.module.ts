@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TurmasRoutingModule } from './turmas-routing.module';
 import { TurmasComponent } from './turmas.component';
 import { IonicModule } from '@ionic/angular';
+import { SearchbarModule } from 'src/app/shared/components/searchbar/searchbar.module';
 
 
 @NgModule({
@@ -11,8 +12,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     TurmasRoutingModule,
-    IonicModule
-
+    IonicModule,
   ]
 })
 export class TurmasModule { }

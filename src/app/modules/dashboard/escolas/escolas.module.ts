@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EscolasRoutingModule } from './escolas-routing.module';
 import { EscolasComponent } from './escolas.component';
 import { IonicModule } from '@ionic/angular';
+import { SearchbarModule } from 'src/app/shared/components/searchbar/searchbar.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     IonicModule,
-    EscolasRoutingModule
+    EscolasRoutingModule,
+    SearchbarModule
   ]
 })
 export class EscolasModule { }

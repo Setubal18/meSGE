@@ -2,6 +2,8 @@
   <ion-list-header>
     Escolas
   </ion-list-header>
+  <app-searchbar ></app-searchbar>
+
   <ion-item *ngFor="let item of escolas; let i=index">
     <ion-label>{{item?.nomeEscola}}</ion-label>
     <ion-icon color="primary" name="create" [routerLink]="['escola',item?.id]"></ion-icon>
