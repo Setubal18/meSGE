@@ -20,6 +20,9 @@ export class EscolasComponent implements OnInit {
   ngOnInit() {
     this.getEscolas();
   }
+  ngOnDestroy(): void {
+    console.log('destroy')
+  }
 
   async getEscolas() {
     this.escolas = await this.escolaService.getEscolasList();
@@ -28,7 +31,6 @@ export class EscolasComponent implements OnInit {
   NavToNewSchool() {
     this.router.navigate(['escola', { relativeTo: Router }]);
   }
-
   async exluirEscola(id: string) {
     try {
       const { message } = await this.escolaService.excluirEscola(id);
@@ -36,6 +38,16 @@ export class EscolasComponent implements OnInit {
       this.apiResponseService.success({ message });
     } catch (error) {
       this.apiResponseService.danger({ error });
+    }
+  }
+
+  found(array){
+    console.log('array',array)
+    if(array.length = 0){
+      this.getEscolas();
+    }
+    else{
+      this.escolas = array
     }
   }
 

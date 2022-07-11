@@ -10,34 +10,33 @@ import { EventEmitter } from 'events';
 export class SearchbarComponent implements OnInit {
   @Input() list = []
   @Input() searchsPaths = []
-  @Output() eventEmitterFind:EventEmitter = new EventEmitter()
-  public seachInput:FormControl = new FormControl('')
+  @Output() eventEmitterFound:EventEmitter = new EventEmitter()
+  public searchInput = new FormControl('')
   constructor() { }
 
-  ngOnInit() {
-    console.log('init')
-  }
+  ngOnInit() {}
 
-  returnResult(){
-    const arrayFound = []
-    this.list.find((toFind)=>{
-      arrayFound.push(this.search(toFind))
+  finding(){
+    let arrayFound = []
+    console.log(this.list, this.searchsPaths)
+    this.searchsPaths.forEach((searchPath)=>{
+       arrayFound = arrayFound.flat(arrayFound.push(this.search(searchPath)))
+       console.log('array',arrayFound)
     })
-
     this.eventEmit(arrayFound)
   }
 
-  search(toFind:string){
-    this.searchsPaths.forEach((searchPath)=>{
-      if(toFind[searchPath].includes(this.seachInput.value)){
-        return toFind
+  search(searchPath:string){
+     return this.list.filter((object)=>{
+      if(this.searchInput.value && object[searchPath].toUpperCase().includes(this.searchInput.value.toUpperCase())){
+        return object
       }
     })
 
   }
 
   eventEmit(returnArray){
-    this.eventEmitterFind.emit(returnArray)
+    this.eventEmitterFound.emit(returnArray)
   }
 
 }

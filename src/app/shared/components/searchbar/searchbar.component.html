@@ -1,1 +1,1 @@
-  <ion-searchbar showCancelButton="focus"></ion-searchbar>
+  <ion-searchbar (ionInput)="searchInput.setValue($event.srcElement.value)" showCancelButton="focus" (keyup)="finding()"></ion-searchbar>
